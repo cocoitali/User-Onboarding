@@ -8,9 +8,12 @@ function Form() {
 			<div>
 				{touched.email && errors.email && <p>{errors.email}</p>}
 				<Field type='email' name='email' placeholder='Email' />
-				<Field type='password' name='password' placeholder='Password' />
-				<button>Submit!</button>
 			</div>
+			<div>
+				{touched.password && errors.password && <p>{errors.password}</p>}
+				<Field type='password' name='password' placeholder='Password' />
+			</div>
+			<button>Submit!</button>
 		</Form>
 	)
 }
