@@ -32,7 +32,7 @@ const FormikUserForm = withFormik({
 			email: email || '',
 			password: password || '',
 			fname: fname || '',
-			tos: tos || ''
+			tos: tos || false,
 		}
 	},
 
