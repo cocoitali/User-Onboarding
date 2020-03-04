@@ -6,6 +6,10 @@ function UserForm({ errors, touched }) {
 	return (
 		<Form>
 			<div>
+				{touched.fname && errors.fname && <p>{errors.fname}</p>}
+				<Field type='text' name='fname' placeholder='Name' />
+			</div>
+			<div>
 				{touched.email && errors.email && <p>{errors.email}</p>}
 				<Field type='email' name='email' placeholder='Email' />
 			</div>
@@ -19,14 +23,16 @@ function UserForm({ errors, touched }) {
 }
 
 const FormikUserForm = withFormik({
-	mapPropsToValues({ email, password }) {
+	mapPropsToValues({ email, password, fname }) {
 		return {
 			email: email || '',
-			password: password || ''
+			password: password || '',
+			fname: fname || ''
 		}
 	},
 
 	validationSchema: Yup.object().shape({
+		fname: Yup.string(),
 		email: Yup.string()
 			.email('Email is not valid')
 			.required('Email is required to login'),
