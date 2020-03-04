@@ -2,7 +2,7 @@ import React from 'react'
 import { withFormik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
-function Form() {
+function UserForm({ errors, touched }) {
 	return (
 		<Form>
 			<div>
@@ -18,7 +18,7 @@ function Form() {
 	)
 }
 
-const FormikLoginForm = withFormik({
+const FormikUserForm = withFormik({
 	mapPropsToValues({ email, password }) {
 		return {
 			email: email || '',
@@ -39,6 +39,6 @@ const FormikLoginForm = withFormik({
 		console.log(values)
 		//THIS IS WHERE YOU DO YOUR FORM SUBMISSION CODE... HTTP REQUESTS, ETC.
 	}
-})(Form)
+})(UserForm)
 
-export default FormikForm
+export default FormikUserForm
