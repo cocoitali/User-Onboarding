@@ -28,11 +28,11 @@ const FormikLoginForm = withFormik({
 
 	validationSchema: Yup.object().shape({
 		email: Yup.string()
-			.email()
-			.required(),
+			.email('Email is not valid')
+			.required('Email is required to login'),
 		password: Yup.string()
-			.min(6)
-			.required()
+			.min(6, 'Password must be 6 characters or longer')
+			.required('Password is required')
 	}),
 
 	handleSubmit(values) {
